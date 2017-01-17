@@ -9,6 +9,10 @@ class Board < ApplicationRecord
   end
 
   def last_change
-    [updated_at, cards.maximum(:updated_at)].max
+    if cards.count > 0
+      [updated_at, cards.maximum(:updated_at)].max
+    else
+      self.update_at
+    end
   end
 end
