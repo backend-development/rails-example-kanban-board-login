@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <nav class="navbar navbar-light mb-1" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-light mb-1" style="background-color: #e3f2fd;">
       <a class="navbar-brand" href="/">
         <%= image_tag('logo.svg', size: "30x30", alt: "Kanban Boards", class: 'd-inline-block') %>
         Kanban Boards
@@ -19,20 +19,25 @@
         <span class="navbar-text mr-1">
             Four Demo Apps for Login:
         </span>
-        <div class="navbar-nav">
-            <a class="nav-link"
-               href="https://kanban-1.projects.multimediatechnology.at/">1: No Login
-               <span class="sr-only">(current)</span></a>
-            <a class="nav-link"
-               href="https://kanban-1.projects.multimediatechnology.at/">2: basic auth</a>
-            <a class="nav-link"
-               href="https://kanban-3.projects.multimediatechnology.at/">3: devise</a>
-            <a class="nav-link"
-               href="https://kanban-4.projects.multimediatechnology.at/">4: omniauth</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+                <a class="nav-link"
+                href="https://kanban-1.projects.multimediatechnology.at/">1: No Login
+                <span class="sr-only">(current)</span></a>
+              <a class="nav-link"
+                href="https://kanban-1.projects.multimediatechnology.at/">2: basic auth</a>
+              <a class="nav-link"
+                href="https://kanban-3.projects.multimediatechnology.at/">3: devise</a>
+              <a class="nav-link"
+                href="https://kanban-4.projects.multimediatechnology.at/">4: omniauth</a>
+          </div>
         </div>
       <span class="navbar-text float-xs-right">
         No Login
       </span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </nav>
     <div class="container">
       <% if flash.any? %>
