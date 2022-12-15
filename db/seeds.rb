@@ -6,3 +6,12 @@ b1.cards.create(title: 'Wichtigster Use Case', description: 'definiere den wicht
 
 b2 = Board.create(title: 'Weihnachten')
 b2.cards.create(title: 'Geschenk für Mama', description: 'Recherche notwendig!', status: 'backlog')
+
+u = User.create({username: "mariam",
+                   password: 'asecret',
+                   password_confirmation: 'asecret'})
+
+
+u = User.create({username: "yusuf",
+                   password: 'badpassword123',
+                   password_confirmation: 'badpassword123'})
