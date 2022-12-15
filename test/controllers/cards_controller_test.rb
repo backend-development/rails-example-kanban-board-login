@@ -27,7 +27,6 @@ class CardsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to card_url(Card.last)
   end
 
-
   test 'should get edit' do
     get edit_board_card_url(@board, @card)
     assert_response :success

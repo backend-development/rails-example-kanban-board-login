@@ -6,3 +6,14 @@ b1.cards.create(title: 'Wichtigster Use Case', description: 'definiere den wicht
 
 b2 = Board.create(title: 'Weihnachten')
 b2.cards.create(title: 'Geschenk für Mama', description: 'Recherche notwendig!', status: 'backlog')
+
+u = User.create({email: "mariam@example.com",
+                   password: 'asecret',
+                   password_confirmation: 'asecret'})
+u.confirm
+
+
+u = User.create({email: "yusuf@example.com",
+                   password: 'badpassword123',
+                   password_confirmation: 'badpassword123'})
+u.confirm

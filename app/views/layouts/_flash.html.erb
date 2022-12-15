@@ -1,0 +1,17 @@
+<div style="position: absolute; top: 0; right: 0; width: 100vw; z-index: 1000;">
+
+
+  <% flash.each do |key, value| %>
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast top-0">
+      <div class="toast-header">
+        <strong class="me-auto"><%= key.capitalize %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body <%= key %>">
+        <%= value %>
+      </div>
+    </div>
+
+
+  <% end %>
+</div>

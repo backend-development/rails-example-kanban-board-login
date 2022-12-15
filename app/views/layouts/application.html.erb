@@ -32,27 +32,28 @@
                 href="https://kanban-4.projects.multimediatechnology.at/">4: omniauth</a>
           </div>
         </div>
-      <span class="navbar-text float-xs-right">
-        No Login
-      </span>
+
+      <div class="navbar-nav">
+
+        <% if current_user %>
+          <%= link_to current_user.email, edit_user_registration_path,  class: "nav-link" %>
+          <%= link_to "Log out", destroy_user_session_path,  class: "nav-link", data: { turbo_method: :delete } %>
+          <%= link_to "the letters", letter_opener_web_path, class: "nav-link" %>
+        <% else %>
+          <%= link_to "Log in", new_user_session_path,  class: "nav-link" %>
+          <%= link_to "Register", new_user_registration_path,  class: "nav-link" %>
+          <%= link_to "the letters", letter_opener_web_path, class: "nav-link" %>
+
+        <% end %>
+      </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </nav>
     <div class="container">
       <% if flash.any? %>
-        <div style="position: absolute; top: 0; right: 0; width: 100vw; z-index: 1000;">
-        <% flash.each do |key, value| %>
-          <div role="alert" aria-live="assertive" aria-atomic="true" class="toast top-0">
-            <div class="toast-header">
-              <strong class="me-auto"><%= key.capitalize %></strong>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              <%= value %>
-            </div>
-          </div>
-        <% end %>
+        <div id="flash">
+          <%= render "layouts/flash" %>
         </div>
       <% end %>
 
@@ -60,10 +61,11 @@
     </div>
     <footer class="bd-footer text-muted">
       <div class="container">
-        <p>This Demo App offers no Login. But a session-cookie <kbd><%=
-        Rails.application.config.session_options[:key] %></kbd> is still created
-          by rails and set for each visitor.</p>
-        <p>You can find the source code in branch <kbd>version-1</kbd> in <a href="https://github.com/backend-development/rails-example-kanban-board-login/tree/version-1">the repository</a>.</p>
+        <p>This Demo App offers Login with the <a href="https://github.com/heartcombo/devise#configuring-views">Devise</a> gem.
+        Try logging in with email <kbd>mariam@example.com</kbd> and password <kbd>asecret</kbd>, or register with
+        any other e-mail. There will be no real e-mail, but you can read all
+        <%= link_to "the letters", letter_opener_web_path %> that would have been sent.</p>
+        <p>You can find the source code in branch <kbd>version-3</kbd> in <a href="https://github.com/backend-development/rails-example-kanban-board-login/tree/version-3">the repository</a>.</p>
       </div>
     </footer>
   </body>
